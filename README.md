@@ -1,7 +1,7 @@
 ﻿# AyanQureshi16
  <p align="center">
   <!-- Replace the link below with your custom banner image link after uploading it to your repo or an image host -->
-  <img src="./Ayan Shahid.png" alt="Ayan Shahid Banner" style="width:100%;max-width:1000px;">
+  <img src="./ASQ.png" alt="Ayan Shahid Banner" style="width:100%;max-width:1000px;">
 </p>
 
 ---
@@ -81,6 +81,7 @@ I love turning ideas into clean and creative web designs!
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AyanQureshi16&layout=compact&theme=radical" height="120"/>
 </p>
+
 
 
 
