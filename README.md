@@ -43,7 +43,7 @@ HTML, CSS, JavaScript, ReactJS, NextJS, ExpressJS, NodeJS
 
 ### 🚀 Portfolio
 
-Check out my work: [ayanqureshi16.github.io/Ayan-Portfolio](https://ayanqureshi16.github.io/Ayan-Portfolio/)
+Check out my work: [ayanqureshi16.github.io/Ayan-Portfolio](https://ayanqureshi16.github.io/My-Portfolio/)
 
 ---
 
@@ -81,6 +81,7 @@ I love turning ideas into clean and creative web designs!
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AyanQureshi16&layout=compact&theme=radical" height="120"/>
 </p>
+
 
 
 
