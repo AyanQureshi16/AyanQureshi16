@@ -49,7 +49,7 @@ Check out my work: [ayanqureshi16.github.io/Ayan-Portfolio](https://ayanqureshi1
 
 ### 📄 My CV / Resume
 
-[View My Resume (Upload link needed!)](https://your-cv-link-here.com)
+[View My Resume](file:///C:/Users/ZASS/Downloads/ASQ%20RESUME%20(2).pdf)
 
 ---
 
@@ -81,6 +81,7 @@ I love turning ideas into clean and creative web designs!
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AyanQureshi16&layout=compact&theme=radical" height="120"/>
 </p>
+
 
 
 
