@@ -3,18 +3,10 @@
 <img src="./assets/ChatGPT%20Image%20Jun%2027%2C%202026%2C%2012_51_11%20AM.png" alt="Ayan Shahid Banner" width="100%"/>
 
 <br/>
+<div/>
 
+<div>
 
-
-[![GitHub](https://img.shields.io/badge/GitHub-AyanQureshi16-161b22?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AyanQureshi16)
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-3B82F6?style=for-the-badge&logo=googlechrome&logoColor=white)](https://ayanqureshi16.github.io/My-Portfolio/)
-[![Email](https://img.shields.io/badge/Email-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ayanshahd1612@gmail.com)
-[![Instagram](https://img.shields.io/badge/Instagram-@ayanqureshi1256-E1306C?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/ayanqureshi1256/)
-[![Resume](https://img.shields.io/badge/Resume-View%20CV-10B981?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](./ASQ%20RESUME%20(2).pdf)
-
-</div>
-
----
 
 ## 👨‍💻 About Me
 
@@ -33,7 +25,7 @@ function build() {
 
 // Always open for Freelance Projects! 🚀
 ```
-
+</div>
 ---
 
 ## ⚡ Tech Stack & Tools
@@ -89,14 +81,14 @@ function build() {
 
 | Project | Description | Tech |
 |--------|-------------|------|
-| 🛒 MERN Stack E-Commerce | Full stack e-commerce web app | JavaScript, MERN |
-| 📊 Final Year SMIT Project | Final year SMIT project | JavaScript, MERN |
-| 🔍 SEO Analytics Tracker | Website SEO crediting tracker | TypeScript |
-| 📂 JS Collections | TypeScript collection project | TypeScript |
-| 🎨 Creative Blog Website | Creative blogging website | HTML, CSS, JS |
-| ⌚ Sigma Watch House | Watch store website | HTML, CSS, JS |
-| 🚗 Sigma Website | Toyota brand landing page | HTML, CSS, JS |
-| 🏢 Web Agency Template | Modern agency website | HTML, CSS, JS |
+|  MERN Stack E-Commerce | Full stack e-commerce web app | JavaScript, MERN |
+|  Final Year SMIT Project | Final year SMIT project | JavaScript, MERN |
+|  SEO Analytics Tracker | Website SEO crediting tracker | TypeScript |
+|  JS Collections | TypeScript collection project | TypeScript |
+|  Creative Blog Website | Creative blogging website | HTML, CSS, JS |
+|  Sigma Watch House | Watch store website | HTML, CSS, JS |
+|  Sigma Website | Toyota brand landing page | HTML, CSS, JS |
+|  Web Agency Template | Modern agency website | HTML, CSS, JS |
 
 ---
 
