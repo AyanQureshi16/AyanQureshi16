@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ayan Shahid — MERN Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#06090F;--surface:#0C1220;--surface2:#101826;--border:#1A2535;
+  --blue:#3B82F6;--blue2:#60A5FA;--cyan:#06B6D4;--green:#10B981;
+  --yellow:#F59E0B;--white:#F0F4FF;--muted:#64748B;--muted2:#94A3B8;
+  --mono:'JetBrains Mono',monospace;--sans:'Space Grotesk',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--white);font-family:var(--sans);line-height:1.65;overflow-x:hidden;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:9px;}
+.page{max-width:860px;margin:0 auto;padding:2.5rem 1.25rem 4rem;}
+
+.banner{width:100%;border-radius:14px;overflow:hidden;margin-bottom:1.5rem;border:1px solid var(--border);opacity:0;transform:translateY(-18px);}
+.banner img{width:100%;display:block;}
+
+.greeting{font-size:1.9rem;font-weight:700;margin-bottom:0.25rem;opacity:0;transform:translateY(20px);}
+.wave{display:inline-block;}
+.sub-title{font-family:var(--mono);font-size:0.82rem;color:var(--cyan);letter-spacing:0.06em;margin-bottom:1.2rem;opacity:0;transform:translateY(12px);}
+
+.badge-row{display:flex;flex-wrap:wrap;gap:0.45rem;margin-bottom:1.75rem;opacity:0;}
+.badge{display:inline-flex;align-items:center;gap:0.35rem;padding:0.28rem 0.75rem;border-radius:999px;font-size:0.72rem;font-family:var(--mono);font-weight:500;border:1px solid;text-decoration:none;transition:filter 0.2s,transform 0.15s;}
+.badge:hover{filter:brightness(1.3);transform:translateY(-2px);}
+.b-gh{color:#e2e8f0;border-color:#30363d;background:#161b22;}
+.b-port{color:#fff;border-color:var(--blue);background:rgba(59,130,246,0.15);}
+.b-mail{color:#fff;border-color:#EA4335;background:rgba(234,67,53,0.12);}
+.b-ig{color:#fff;border-color:#E1306C;background:rgba(225,48,108,0.12);}
+.b-cv{color:#10B981;border-color:#10B981;background:rgba(16,185,129,0.1);}
+
+.divider{height:1px;background:var(--border);margin:1.5rem 0;}
+
+.sec{margin-bottom:2rem;opacity:0;transform:translateY(28px);}
+.sec-head{display:flex;align-items:center;gap:0.6rem;font-size:1rem;font-weight:600;margin-bottom:1.1rem;}
+
+.code-block{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;font-family:var(--mono);font-size:0.8rem;line-height:1.9;position:relative;overflow:hidden;}
+.code-block::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));}
+.c-key{color:#93C5FD;}.c-str{color:#A3E635;}.c-arr{color:var(--cyan);}.c-brace{color:var(--yellow);}.c-cmt{color:var(--muted);}
+.copy-btn{position:absolute;top:0.7rem;right:0.8rem;background:var(--surface2);border:1px solid var(--border);color:var(--muted2);font-family:var(--mono);font-size:0.68rem;padding:0.2rem 0.55rem;border-radius:6px;cursor:pointer;transition:color 0.2s,border-color 0.2s;}
+.copy-btn:hover{color:var(--blue);border-color:var(--blue);}
+
+.stack-cat{font-family:var(--mono);font-size:0.7rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;margin:0.9rem 0 0.5rem;}
+.stack-row{display:flex;flex-wrap:wrap;gap:0.5rem;}
+.tech-tag{display:inline-flex;align-items:center;gap:0.35rem;padding:0.3rem 0.8rem;border-radius:8px;font-size:0.75rem;font-family:var(--mono);font-weight:500;border:1px solid var(--border);background:var(--surface2);color:var(--muted2);transition:all 0.2s;cursor:default;}
+.tech-tag:hover{border-color:var(--blue);color:var(--white);transform:translateY(-2px);}
+.tech-tag .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.fe .dot{background:#F97316;}.be .dot{background:#22C55E;}.db .dot{background:#10B981;}.tool .dot{background:#8B5CF6;}
+
+.learn-list{display:flex;flex-direction:column;gap:0.6rem;}
+.learn-item{display:flex;align-items:flex-start;gap:0.7rem;font-size:0.88rem;color:var(--muted2);padding:0.55rem 0.9rem;border-radius:8px;background:var(--surface);border:1px solid var(--border);transition:border-color 0.2s;}
+.learn-item:hover{border-color:var(--blue);}
+.li-dot{color:var(--blue);flex-shrink:0;margin-top:1px;}
+
+.ask-tags{display:flex;flex-wrap:wrap;gap:0.45rem;}
+.ask-tag{padding:0.3rem 0.8rem;border-radius:999px;font-size:0.75rem;font-family:var(--mono);background:rgba(59,130,246,0.1);color:var(--blue2);border:1px solid rgba(59,130,246,0.25);}
+
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;}
+.stats-grid img{width:100%;border-radius:10px;display:block;}
+.langs-wrap{margin-top:0.9rem;}
+.langs-wrap img{width:100%;max-width:360px;border-radius:10px;display:block;}
+.graph-img img{width:100%;border-radius:10px;display:block;}
+
+.proj-table{width:100%;border-collapse:collapse;}
+.proj-table th{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:0.5rem 0.75rem;text-align:left;border-bottom:1px solid var(--border);}
+.proj-table td{padding:0.65rem 0.75rem;font-size:0.82rem;color:var(--muted2);border-bottom:1px solid rgba(30,41,59,0.6);vertical-align:top;}
+.proj-table tr:hover td{background:rgba(59,130,246,0.04);}
+.proj-name{color:var(--blue2);font-weight:500;}
+.proj-tech{font-family:var(--mono);font-size:0.72rem;color:var(--cyan);}
+
+.connect-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:0.75rem;}
+.connect-card{display:flex;align-items:center;gap:0.7rem;padding:0.75rem 1rem;border-radius:10px;background:var(--surface);border:1px solid var(--border);text-decoration:none;color:var(--muted2);font-size:0.83rem;transition:all 0.2s;}
+.connect-card:hover{border-color:var(--blue);color:var(--white);transform:translateY(-2px);}
+.connect-icon{font-size:1.1rem;flex-shrink:0;}
+.ci-label{font-size:0.72rem;color:var(--muted);font-family:var(--mono);}
+
+.footer{text-align:center;margin-top:3rem;font-family:var(--mono);font-size:0.7rem;color:var(--muted);letter-spacing:0.08em;}
+
+.cursor-glow{position:fixed;pointer-events:none;z-index:9999;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,0.07) 0%,transparent 70%);transform:translate(-50%,-50%);}
+
+@media(max-width:580px){.stats-grid{grid-template-columns:1fr;}.greeting{font-size:1.4rem;}}
+</style>
+</head>
+<body>
+<div class="cursor-glow" id="glow"></div>
+<div class="page">
+
+  <div class="banner" id="banner">
+    <img src="./assets/ChatGPT Image Jun 27, 2026, 12_51_11 AM.png" alt="Ayan Shahid — MERN Stack Developer"/>
+  </div>
+
+  <!-- <h1 class="greeting" id="greeting">
+    <span class="wave">👋</span> Hi there, I'm <span style="color:var(--blue)">Ayan Shahid</span>
+  </h1>
+  <p class="sub-title" id="subtitle">
+    🚀 MERN Stack Developer &nbsp;|&nbsp; Freelance Web Developer &nbsp;|&nbsp; Pakistan 🇵🇰
+  </p>
+
+  <div class="badge-row" id="badges">
+    <a class="badge b-gh" href="https://github.com/AyanQureshi16" target="_blank">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub
+    </a>
+    <a class="badge b-port" href="https://ayanqureshi16.github.io/Ayan-Portfolio/" target="_blank">🌐 Portfolio</a>
+    <a class="badge b-mail" href="mailto:ayanshahd1612@gmail.com">📧 Email</a>
+    <a class="badge b-ig" href="https://www.instagram.com/ayanqureshi1256/" target="_blank">📸 Instagram</a>
+    <a class="badge b-cv" href="ASQ RESUME (2).pdf" target="_blank">📄 Resume</a>
+  </div> -->
+
+  <div class="divider"></div>
+
+  <div class="sec" id="sec-about">
+    <div class="sec-head">👨‍💻 About Me</div>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode()">copy</button>
+      <span class="c-key">const</span> <span style="color:#60A5FA">Ayan</span> = <span class="c-brace">{</span><br>
+      &nbsp;&nbsp;<span class="c-key">name</span>: <span class="c-str">"Ayan Shahid"</span>,<br>
+      &nbsp;&nbsp;<span class="c-key">role</span>: <span class="c-str">"MERN Stack Web Developer"</span>,<br>
+      &nbsp;&nbsp;<span class="c-key">skills</span>: <span class="c-arr">[</span><span class="c-str">"MongoDB"</span>, <span class="c-str">"Express.js"</span>, <span class="c-str">"React.js"</span>, <span class="c-str">"Node.js"</span><span class="c-arr">]</span>,<br>
+      &nbsp;&nbsp;<span class="c-key">passion</span>: <span class="c-str">"Turning ideas into beautiful web experiences"</span>,<br>
+      &nbsp;&nbsp;<span class="c-key">funFact</span>: <span class="c-str">"I love turning ideas into clean &amp; creative web designs ✨"</span>,<br>
+      <span class="c-brace">};</span><br><br>
+      <span class="c-key">function</span> <span style="color:#60A5FA">build</span><span class="c-brace">()</span> <span class="c-brace">{</span><br>
+      &nbsp;&nbsp;<span class="c-key">return</span> <span class="c-str">"Clean Code. Better Experience."</span>;<br>
+      <span class="c-brace">}</span><br><br>
+      <span class="c-cmt">// Always open for Freelance Projects!</span>
+    </div>
+  </div>
+
+  <div class="sec" id="sec-stack">
+    <div class="sec-head">⚡ Tech Stack &amp; Tools</div>
+    <div class="stack-cat">Frontend</div>
+    <div class="stack-row">
+      <span class="tech-tag fe"><span class="dot"></span>HTML5</span>
+      <span class="tech-tag fe"><span class="dot"></span>CSS3</span>
+      <span class="tech-tag fe"><span class="dot"></span>JavaScript</span>
+      <span class="tech-tag fe"><span class="dot"></span>React.js</span>
+      <span class="tech-tag fe"><span class="dot"></span>Next.js</span>
+       <span class="tech-tag fe"><span class="dot"></span>Typescript</span>
+        <span class="tech-tag fe"><span class="dot"></span>Tailwind CSS</span>
+         <span class="tech-tag fe"><span class="dot"></span>Material UI</span>
+          <span class="tech-tag fe"><span class="dot"></span>Ant Design</span>
+          <span class="tech-tag fe"><span class="dot"></span>GSAP</span>
+    </div>
+    <div class="stack-cat">Backend</div>
+    <div class="stack-row">
+      <span class="tech-tag be"><span class="dot"></span>Node.js</span>
+      <span class="tech-tag be"><span class="dot"></span>Express.js</span>
+      <span class="tech-tag db"><span class="dot"></span>MongoDB</span>
+      <span class="tech-tag db"><span class="dot"></span>Firebase</span>
+      <span class="tech-tag db"><span class="dot"></span>Postman</span>
+      <span class="tech-tag db"><span class="dot"></span>Insomnia</span>
+       <span class="tech-tag db"><span class="dot"></span>Rest APIs</span>
+      
+    </div>
+    <div class="stack-cat">Tools &amp; Platforms</div>
+    <div class="stack-row">
+       <span class="tech-tag tool"><span class="dot"></span>Docker</span>
+      <span class="tech-tag tool"><span class="dot"></span>Git</span>
+      <span class="tech-tag tool"><span class="dot"></span>VS Code</span>
+      <span class="tech-tag tool"><span class="dot"></span>GitHub</span>
+      <span class="tech-tag tool"><span class="dot"></span>Vercel</span>
+      <span class="tech-tag tool"><span class="dot"></span>Netlify</span>
+       <span class="tech-tag tool"><span class="dot"></span>Cloudinary</span>
+    </div>
+  </div>
+
+  <div class="sec" id="sec-learn">
+    <div class="sec-head">📚 Currently Learning</div>
+    <div class="learn-list">
+      <div class="learn-item"><span class="li-dot">▸</span> Advanced Node.js &amp; Backend Architecture</div>
+      <div class="learn-item"><span class="li-dot">▸</span> Deep diving into Real Time Projects</div>
+      <div class="learn-item"><span class="li-dot">▸</span> Database design with MongoDB</div>
+      <div class="learn-item"><span class="li-dot">▸</span> REST APIs with Express.js</div>
+    </div>
+  </div>
+
+  <div class="sec" id="sec-ask">
+    <div class="sec-head">💬 Ask Me About</div>
+    <div class="ask-tags">
+      <span class="ask-tag">HTML</span><span class="ask-tag">CSS</span>
+      <span class="ask-tag">JavaScript</span><span class="ask-tag">React.js</span>
+      <span class="ask-tag">Next.js</span><span class="ask-tag">Node.js</span>
+      <span class="ask-tag">Express.js</span><span class="ask-tag">MongoDB</span>
+    </div>
+  </div>
+
+  <div class="sec" id="sec-stats">
+    <div class="sec-head">📊 GitHub Stats</div>
+    <div class="stats-grid">
+      <img src="https://github-readme-stats.vercel.app/api?username=AyanQureshi16&show_icons=true&theme=transparent&hide_border=true&title_color=3B82F6&icon_color=06B6D4&text_color=94A3B8&bg_color=0C1220" alt="GitHub stats"/>
+      <img src="https://github-readme-streak-stats.herokuapp.com/?user=AyanQureshi16&theme=transparent&hide_border=true&stroke=1A2535&ring=3B82F6&fire=06B6D4&currStreakLabel=94A3B8&sideLabels=94A3B8&dates=64748B&background=0C1220" alt="GitHub Streak"/>
+    </div>
+    <div class="langs-wrap">
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AyanQureshi16&layout=compact&theme=transparent&hide_border=true&title_color=3B82F6&text_color=94A3B8&bg_color=0C1220" alt="Top Languages"/>
+    </div>
+  </div>
+
+  <div class="sec" id="sec-graph">
+    <div class="sec-head">📈 Contribution Graph</div>
+    <div class="graph-img">
+      <img src="https://github-readme-activity-graph.vercel.app/graph?username=AyanQureshi16&theme=react-dark&hide_border=true&bg_color=0C1220&color=3B82F6&line=06B6D4&point=F0F4FF&area=true" alt="Contribution Graph"/>
+    </div>
+  </div>
+
+  <div class="sec" id="sec-proj">
+    <div class="sec-head">🚀 Featured Projects</div>
+    <table class="proj-table">
+      <thead><tr><th>Project</th><th>Description</th><th>Tech</th></tr></thead>
+      <tbody>
+        <tr><td class="proj-name">🛒 MERN Stack E-Commerce</td><td>Full stack e-commerce web app</td><td class="proj-tech">JavaScript, MERN</td></tr>
+        <tr><td class="proj-name">📊 Final Year SMIT Project</td><td>Final year SMIT project</td><td class="proj-tech">JavaScript, MERN</td></tr>
+        <tr><td class="proj-name">🔍 SEO Analytics Tracker</td><td>Website SEO crediting tracker</td><td class="proj-tech">TypeScript</td></tr>
+        <tr><td class="proj-name">📂 JS Collections</td><td>TypeScript collection project</td><td class="proj-tech">TypeScript</td></tr>
+        <tr><td class="proj-name">🎨 Creative Blog Website</td><td>Creative blogging website</td><td class="proj-tech">HTML, CSS, JS</td></tr>
+        <tr><td class="proj-name">⌚ Sigma Watch House</td><td>Watch store website</td><td class="proj-tech">HTML, CSS, JS</td></tr>
+        <tr><td class="proj-name">🚗 Sigma Website</td><td>Toyota brand landing page</td><td class="proj-tech">HTML, CSS, JS</td></tr>
+        <tr><td class="proj-name">🏢 Web Agency Template</td><td>Modern agency website</td><td class="proj-tech">HTML, CSS, JS</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec" id="sec-connect">
+    <div class="sec-head">🤝 Let's Connect!</div>
+    <div class="connect-grid">
+      <a class="connect-card" href="https://github.com/AyanQureshi16" target="_blank">
+        <span class="connect-icon">🐙</span>
+        <div><div class="ci-label">GitHub</div><div>AyanQureshi16</div></div>
+      </a>
+      <a class="connect-card" href="mailto:ayanshahd1612@gmail.com">
+        <span class="connect-icon">📧</span>
+        <div>
+          <div class="ci-label">Email</div>
+          <div style="font-size:0.78rem;word-break:break-word;">ayanshahd1612@gmail.com</div>
+        </div>
+      </a>
+      <a class="connect-card" href="https://www.instagram.com/ayanqureshi1256/" target="_blank">
+        <span class="connect-icon">📸</span>
+        <div><div class="ci-label">Instagram</div><div>@ayanqureshi1256</div></div>
+      </a>
+      <a class="connect-card" href="https://ayanqureshi16.github.io/My-Portfolio/" target="_blank">
+        <span class="connect-icon">🌐</span>
+        <div><div class="ci-label">Portfolio</div><div style="font-size:0.78rem">Ayan-Portfolio</div></div>
+      </a>
+      <a class="connect-card" href="https://your-cv-link-here.com" target="_blank">
+        <span class="connect-icon">📄</span>
+        <div><div class="ci-label">Resume</div><div>View CV</div></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer"> crafted with passion · Ayan Shahid · MERN Stack Developer · Pakistan</div>
+</div>
+
+<script>
+const glow = document.getElementById('glow');
+document.addEventListener('mousemove', e => {
+  gsap.to(glow, { left: e.clientX, top: e.clientY, duration: 0.6, ease: 'power2.out' });
+});
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Banner slides down
+gsap.to('#banner', { opacity:1, y:0, duration:1, ease:'power3.out', delay:0.15 });
+
+// Greeting
+gsap.to('#greeting', { opacity:1, y:0, duration:0.7, ease:'power2.out', delay:0.55 });
+
+// Wave bounce
+gsap.fromTo('.wave', { rotation:-15 }, { rotation:20, duration:0.35, yoyo:true, repeat:5, ease:'power1.inOut', delay:0.9 });
+
+// Subtitle
+gsap.to('#subtitle', { opacity:1, y:0, duration:0.6, ease:'power2.out', delay:0.8 });
+
+// Badges stagger
+gsap.to('#badges', { opacity:1, duration:0.01, delay:1.1 });
+gsap.fromTo('#badges .badge',
+  { opacity:0, y:18, scale:0.88 },
+  { opacity:1, y:0, scale:1, duration:0.42, stagger:0.09, ease:'back.out(1.7)', delay:1.15 }
+);
+
+// Sections scroll reveal
+gsap.utils.toArray('.sec').forEach(el => {
+  gsap.to(el, {
+    scrollTrigger:{ trigger:el, start:'top 88%', toggleActions:'play none none none' },
+    opacity:1, y:0, duration:0.65, ease:'power2.out'
+  });
+});
+
+// Tech tags pop
+gsap.utils.toArray('.tech-tag').forEach((tag, i) => {
+  gsap.fromTo(tag, { opacity:0, scale:0.82 }, {
+    scrollTrigger:{ trigger:tag, start:'top 93%' },
+    opacity:1, scale:1, duration:0.35, delay:i*0.045, ease:'back.out(1.5)'
+  });
+});
+
+// Stats images
+gsap.utils.toArray('.stats-grid img').forEach((img, i) => {
+  gsap.fromTo(img, { opacity:0, x: i===0 ? -22 : 22 }, {
+    scrollTrigger:{ trigger:img, start:'top 90%' },
+    opacity:1, x:0, duration:0.72, ease:'power2.out'
+  });
+});
+
+// Project rows
+gsap.utils.toArray('.proj-table tbody tr').forEach((row, i) => {
+  gsap.fromTo(row, { opacity:0, x:-18 }, {
+    scrollTrigger:{ trigger:row, start:'top 93%' },
+    opacity:1, x:0, duration:0.4, delay:i*0.055, ease:'power1.out'
+  });
+});
+
+// Connect cards
+gsap.utils.toArray('.connect-card').forEach((card, i) => {
+  gsap.fromTo(card, { opacity:0, y:22, scale:0.94 }, {
+    scrollTrigger:{ trigger:card, start:'top 93%' },
+    opacity:1, y:0, scale:1, duration:0.45, delay:i*0.08, ease:'back.out(1.4)'
+  });
+});
+
+// Learn items
+gsap.utils.toArray('.learn-item').forEach((item, i) => {
+  gsap.fromTo(item, { opacity:0, x:-14 }, {
+    scrollTrigger:{ trigger:item, start:'top 92%' },
+    opacity:1, x:0, duration:0.4, delay:i*0.08, ease:'power2.out'
+  });
+});
+
+function copyCode() {
+  const text = `const Ayan = {\n  name: "Ayan Shahid",\n  role: "MERN Stack Web Developer",\n  skills: ["MongoDB", "Express.js", "React.js", "Node.js"],\n  passion: "Turning ideas into beautiful web experiences",\n  funFact: "I love turning ideas into clean & creative web designs ✨",\n};\n\nfunction build() {\n  return "Clean Code. Better Experience.";\n}\n\n// Always open for Freelance Projects!`;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent = 'copied ✓';
+    btn.style.color = 'var(--green)';
+    btn.style.borderColor = 'var(--green)';
+    setTimeout(() => { btn.textContent = 'copy'; btn.style.color = ''; btn.style.borderColor = ''; }, 2200);
+  });
+}
+</script>
+</body>
+</html>
