@@ -3,10 +3,14 @@
 <img src="./assets/ChatGPT%20Image%20Jun%2027%2C%202026%2C%2012_51_11%20AM.png" alt="Ayan Shahid Banner" width="100%"/>
 
 <br/>
-<div/>
 
-<div>
 
+<br/>
+
+
+</div>
+
+---
 
 ## 👨‍💻 About Me
 
@@ -25,7 +29,7 @@ function build() {
 
 // Always open for Freelance Projects! 🚀
 ```
-</div>
+
 ---
 
 ## ⚡ Tech Stack & Tools
